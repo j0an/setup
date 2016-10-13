@@ -68,6 +68,12 @@ println "Installing Brew Cask..."
 
 println "Installing iTerm2..."
   brew cask install iterm2
+  
+println "Installing Skype..."
+  brew cask install skype
+
+println "Installing Dropbox..."
+  brew cask install dropbox
 
 println "Installing Firefox..."
   brew cask install firefox
