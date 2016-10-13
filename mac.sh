@@ -72,9 +72,6 @@ println "Installing iTerm2..."
 println "Installing Firefox..."
   brew cask install firefox
 
-println "Installing Github..."
-  brew cask install github-desktop
-
 println "Installing Atom..."
   brew cask install atom
 
@@ -84,24 +81,12 @@ println "Installing Slack..."
 println "Installing Spotify..."
   brew cask install spotify
 
-println "Installing Postgres..."
-  brew_install_or_upgrade 'postgres' '--no-python'
-
-println "Installing Postgres.app..."
-  brew cask install postgres
-
-println "Installing Redis..."
-  brew_install_or_upgrade 'redis'
-
 println "Installing PhantomJS..."
   brew_install_or_upgrade 'phantomjs'
 
 println "Installing MySQL 5.6..."
   brew tap homebrew/versions
   brew_install_or_upgrade 'homebrew/versions/mysql56'
-
-println "Installing ImageMagick, to crop and resize images..."
-  brew_install_or_upgrade 'imagemagick'
 
 println "Installing QT, used by Capybara Webkit for integration testing..."
   brew_install_or_upgrade 'qt'
@@ -112,7 +97,7 @@ println "Installing ChromeDriver, to drive Chrome via Selenium..."
 println "Installing Git..."
   brew_install_or_upgrade 'git'
 
-node_version="0.10.40"
+node_version="4.6.0"
 
 println "Installing NVM, Node.js, and NPM, for running apps and installing JavaScript packages..."
   brew_install_or_upgrade 'nvm'
@@ -155,9 +140,3 @@ println "Updating to latest Rubygems version..."
 println "Configuring Bundler for faster, parallel gem installation..."
   number_of_cores=$(sysctl -n hw.ncpu)
   bundle config --global jobs $((number_of_cores - 1))
-
-println "Installing Heroku CLI client..."
-  brew_install_or_upgrade 'heroku-toolbelt'
-
-println "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables..."
-  heroku plugins:install git://github.com/ddollar/heroku-config.git
