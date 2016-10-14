@@ -69,24 +69,6 @@ println "Installing Brew Cask..."
 println "Installing iTerm2..."
   brew cask install iterm2
   
-println "Installing Skype..."
-  brew cask install skype
-
-println "Installing Dropbox..."
-  brew cask install dropbox
-
-println "Installing Firefox..."
-  brew cask install firefox
-
-println "Installing Atom..."
-  brew cask install atom
-
-println "Installing Slack..."
-  brew cask install slack
-
-println "Installing Spotify..."
-  brew cask install spotify
-
 println "Installing PhantomJS..."
   brew_install_or_upgrade 'phantomjs'
 
@@ -96,12 +78,39 @@ println "Installing MySQL 5.6..."
 
 println "Installing QT, used by Capybara Webkit for integration testing..."
   brew_install_or_upgrade 'qt'
-
+  
 println "Installing ChromeDriver, to drive Chrome via Selenium..."
   brew_install_or_upgrade 'chromedriver'
 
 println "Installing Git..."
   brew_install_or_upgrade 'git'
+
+println "Installing Skype..."
+  brew cask install skype
+
+println "Installing Dropbox..."
+  brew cask install dropbox
+
+println "Installing Firefox..."
+  brew cask install firefox
+
+println "Installing Chrome..."
+  brew cask install google-chrome
+
+println "Installing Atom..."
+  brew cask install atom
+
+println "Installing Slack..."
+  brew cask install slack
+
+println "Installing Spotify..."
+  brew cask install spotify
+  
+println "Installing Sketch..."
+  brew cask install sketch
+
+println "Installing Adobe Photoshop..."
+  brew cask install adobe-photoshop-cc
 
 node_version="4.6.0"
 
