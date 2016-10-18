@@ -5,7 +5,7 @@ Script to install base environment for Ruby development.
 ## Install on Mac OS X
 
 ```
-curl -L https://raw.githubusercontent.com/ombulabs/setup/master/mac.sh | bash
+curl -L https://raw.githubusercontent.com/j0an/setup/master/mac.sh | bash
 ```
 
 ## Installed libraries
@@ -13,27 +13,32 @@ curl -L https://raw.githubusercontent.com/ombulabs/setup/master/mac.sh | bash
 The script will install:
 
 * homebrew
-* imagemagick
 * oh-my-zsh
 * mysql
-* postgres
-* redis
 * rvm
-* ruby-2.1.7
+* ruby-2.3.1
 * nvm
 * qt
 * chromedriver
-* github desktop
-* heroku-toolbelt
 * spotify
 * slack
 * firefox
+* atom (with some packages)
+* flux
+* dropbox
+* skype
+* sketch
+* adobe photoshop cc
+* vlc
+* transmit
+* transmission
+* app cleaner
 
 # FAQ
 
 ## I get a permissions error. Why?
 
-You may need to update your local libraries directory. 
+You may need to update your local libraries directory.
 
 ```
 sudo chown -R $(whoami):admin /Library/Caches/Homebrew
@@ -49,7 +54,7 @@ You have to install Xcode developer tools
 xcode-select --install
 ```
 
-## But I don't want \<application> installed. 
+## But I don't want \<application> installed.
 
 Just remove \<application> from https://github.com/ombulabs/setup/blob/master/mac.sh
 
