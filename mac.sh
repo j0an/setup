@@ -13,6 +13,11 @@ if [[ ! -d "$HOME/Sites/" ]]; then
   mkdir "$HOME/Sites"
 fi
 
+if [[ ! -d "$HOME/.itermocil" ]]; then
+  mkdir "$HOME/.itermocil"
+fi
+
+
 println() {
   printf "%b\n" "$1"
 }
@@ -73,6 +78,17 @@ println "Installing Brew Cask..."
 
 println "Installing iTerm2..."
   brew cask install iterm2
+
+println "Install Zsh..."
+  brew_install_or_upgrade 'zsh'
+  brew_install_or_upgrade 'zsh-completions'
+
+println "Install Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+println "Install itermocil"
+  brew_install_or_upgrade 'TomAnthony/brews/itermocil'
+
 
 println "Installing PhantomJS..."
   brew_install_or_upgrade 'phantomjs'
@@ -177,18 +193,19 @@ println "Installing VLC..."
 node_version="v4.6.0"
 
 println "Installing NVM, Node.js, and NPM, for running apps and installing JavaScript packages..."
-  brew_install_or_upgrade 'nvm'
 
-  if ! grep -qs 'source $(brew --prefix nvm)/nvm.sh' ~/.zshrc; then
-    printf 'export PATH="$PATH:/usr/local/lib/node_modules"\n' >> ~/.zshrc
-    printf 'source $(brew --prefix nvm)/nvm.sh\n' >> ~/.zshrc
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+
+
+  if ! grep -qs 'export NVM_DIR="$HOME/.nvm"' ~/.zshrc; then
+    printf 'export NVM_DIR="$HOME/.nvm"\n[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.zshrc
   fi
 
-  source $(brew --prefix nvm)/nvm.sh
   nvm install "$node_version"
 
   println "Setting $node_version as the global default nodejs..."
   nvm alias default "$node_version"
+
 
 if ! command -v rvm &>/dev/null; then
 
@@ -200,10 +217,6 @@ else
 
   println "Rvm already installed. Skipping..."
 fi
-
-println "Upgrading and linking OpenSSL..."
-  brew_install_or_upgrade 'openssl'
-  brew unlink openssl && brew link openssl --force
 
 ruby_version="2.3.1"
 
@@ -218,6 +231,11 @@ println "Configuring Bundler for faster, parallel gem installation..."
   number_of_cores=$(sysctl -n hw.ncpu)
   bundle config --global jobs $((number_of_cores - 1))
 
+
+
+println "Upgrading and linking OpenSSL..."
+  brew_install_or_upgrade 'openssl'
+  brew unlink openssl && brew link openssl --force
 
 println "Cleanup..."
   brew cleanup

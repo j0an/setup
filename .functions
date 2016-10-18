@@ -5,6 +5,10 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
+function cdl() {
+  cd "$@" && la
+}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
