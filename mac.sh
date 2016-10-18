@@ -152,6 +152,9 @@ println "Installing Dropbox..."
 println "Installing Flux..."
   brew cask install flux
 
+println "Installing SizeUp..."
+  brew cask install sizeup
+
 println "Installing Transmit..."
   brew cask install transmit
 
